@@ -275,6 +275,9 @@ InsecureSkipVerify = <%= p('traefik.accept_invalid_backend_certificates') %>
       KeyFile = "/var/vcap/jobs/traefik/tls/traefik-default.key"
 <%   end -%>
 <% end -%>
+  <% if p('traefik.additionalEntryPoints') -%>
+    <%= p('traefik.additionalEntryPoints') %>
+  <% end -%>
 
 <% if p('traefik.api.enabled') -%>
   [entryPoints.traefik-api]

@@ -252,6 +252,15 @@ properties:
       The TLS certificate to use for the 'web' backend.
 
 
+  traefik.additionalEntryPoints:
+    description: |
+      A verbatim of additional entrypoint rules, to be
+      merged in to traefik.toml. Exclude opening
+      [entryPoints] line.
+    example: |
+      [entryPoints.healthcheck]
+        address = ":82"
+
   traefik.file.enabled:
     description: |
       Whether the 'file' backend should be enabled.
