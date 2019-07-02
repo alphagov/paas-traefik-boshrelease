@@ -258,7 +258,7 @@ InsecureSkipVerify = <%= p('traefik.accept_invalid_backend_certificates') %>
 [entryPoints]
 <% if p('traefik.http.enabled') -%>
   [entryPoints.http]
-  address = ":80"
+  address = ":<%= p('traefik.http.port') %>"
 <%   if p('traefik.http.redirect_to_https') -%>
     [entryPoints.http.redirect]
     entryPoint = "https"
@@ -266,7 +266,7 @@ InsecureSkipVerify = <%= p('traefik.accept_invalid_backend_certificates') %>
 <% end -%>
 <% if p('traefik.tls.enabled') -%>
   [entryPoints.https]
-  address = ":443"
+  address = ":<%= p('traefik.tls.port') %>"
     [entryPoints.https.tls]
     minVersion = "<%= p('traefik.tls.min_version') %>"
 <%   if_p('traefik.tls.cert') do |cert| -%>
